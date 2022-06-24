@@ -7,7 +7,7 @@ const factory = require('./handlerFactory');
 exports.getCheckoutSession = catchAsync(async (req, res, next) => {
   // 1) Get the currently booked tour
   const stripe = Stripe(
-    'sk_test_51LEG4eEPAjvEWeIfwo12v6FSl6KTnuD00oWi2po9n3z8BfqmJLv43wxrLU0B4O8BTUuFelBpVIagXSzSikh9JKcN00jgEviHfT'
+    process.env.STRIPE_PASSWORD
   );
 
   const tour = await Tour.findById(req.params.tourId);
